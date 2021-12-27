@@ -14,8 +14,12 @@ class Zmicro < Formula
     # ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
     # https://rubydoc.brew.sh/Formula.html#std_configure_args-instance_method
-    system "./install", *std_configure_args, "--disable-silent-rules"
+    # system "./install", *std_configure_args, "--disable-silent-rules"
     # system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # system "#{prefix}/install"
+
+    prefix.install "bin", "core", "commands", "plugins", "config", "mod", "install"
+    # bin.install "#{prefix}/bin/zmicro"
   end
 
   test do
